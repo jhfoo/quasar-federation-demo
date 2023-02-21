@@ -1,3 +1,4 @@
 steps:
  - label: "ls -l test"
+   if: build.tag == "remote"
    command: ls -hl 
