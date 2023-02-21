@@ -1,6 +1,6 @@
 steps:
   - label: "debug"
-    command: echo "${build.tag}"
+    command: env
   - label: "ls -l test"
     if: build.tag == "remote"
     command: ls -hl 
