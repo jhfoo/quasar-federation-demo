@@ -1,6 +1,12 @@
 steps:
-  - label: "debug"
-    command: env
-  - label: "ls -l test"
-    if: build.tag == "remote"
-    command: ls -hl 
+  - label: "Triggering pipelines"
+    plugins:
+      - monebag/monorepo-diff#v2.5.7:
+          diff: "git diff --name-only HEAD~1"
+          watch:
+            - path: "quasar-fed-demo-remote/"
+              config:
+                command: buildkite-agent pipeline upload quasar-fed-demo-remote/.buildkite/pipeline.yml
+            - path: "foo-service/"
+              config:
+                trigger: "deploy-foo-service"
