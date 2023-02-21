@@ -1,3 +1,4 @@
 git add ..
-git tag -a "remote"
+git tag remote
 git commit -m "$1"
+git push
