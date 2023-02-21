@@ -1,0 +1,3 @@
+steps:
+ - label: "ls -l test"
+   command: ls -l 
